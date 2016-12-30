@@ -3,7 +3,7 @@
 项目基于：
 Rxjava+Retrofit+MVP
 各种自定义View的实现，多线程的处理
-异步工作，UI的刷新，定时工作。需要添加以下库
+异步工作，UI的刷新，定时工作。需要添加以下库：
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
