@@ -50,6 +50,7 @@ public class GetNews implements GetNews_I{
                     }
                     @Override
                     public void onNext(NewsJson newsJson) {
+                        Log.e(TAG, "onNext: "+"?????" );
                         listener.getResult(newsJson);
                     }
                 });

@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="280dp"
         android:fitsSystemWindows="true">
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -34,16 +34,10 @@
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
-        android:layout_height="match_parent"
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:id="@+id/n_scroll_view">
-        <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:orientation="vertical">
-            <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:text="哈" android:textSize="200sp" android:textColor="#0f0"/>
-            <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:text="哈" android:textSize="200sp" android:textColor="#0f0"/>
-            <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:text="哈" android:textSize="200sp" android:textColor="#0f0"/>
-            <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:text="哈" android:textSize="200sp" android:textColor="#0f0"/>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+        android:id="@+id/news_recycle">
+    </android.support.v7.widget.RecyclerView>
 </android.support.design.widget.CoordinatorLayout>

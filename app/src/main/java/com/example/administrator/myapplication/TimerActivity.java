@@ -9,6 +9,8 @@ import android.util.Log;
 import android.widget.TextView;
 
 
+import com.example.administrator.myapplication.View.Countdown;
+
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -29,8 +31,9 @@ public class TimerActivity extends Activity {
     private static final String TAG = "TimerActivity";
     private final int COUNTTIME=60;
     private int timeleft=0;
-    private int min=0,sec=5;
+    private int min=30,sec=0;
     private Vibrator vibrator;
+    Countdown countdown;
     @BindView(R.id.time_text)TextView textView;
     @Override
     protected void onCreate(Bundle savedInsaceState){
@@ -39,6 +42,10 @@ public class TimerActivity extends Activity {
         ButterKnife.bind(this);
         showTime();
         vibrator=(Vibrator)getSystemService(VIBRATOR_SERVICE);
+
+        countdown=(Countdown)findViewById(R.id.countdown);
+
+
     }
     public static void StartMe(Context context){
         Intent intent=new Intent(context,TimerActivity.class);
@@ -52,32 +59,31 @@ public class TimerActivity extends Activity {
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onCompleted() {
-
                     }
-
                     @Override
                     public void onError(Throwable e) {
-
                     }
                     @Override
                     public void onNext(Long aLong) {
                         int t=aLong.intValue();
                         Log.e(TAG, "onNext: "+t);
                         updateTime(t);
+                        float sita=aLong*360f/1800f;
+                        Log.e(TAG, "onNext: sita"+sita);
+                        countdown.setProgress(sita);
                         if (min>10){
-                            if (sec>10){
+                            if (sec>=10){
                                 textView.setText(min+":"+sec);
                             }else {
                                 textView.setText(min+":"+"0"+sec);
                             }
                         }else {
-                            if (sec>10){
+                            if (sec>=10){
                                 textView.setText("0"+min+":"+sec);
                             }else {
                                 textView.setText("0"+min+":"+"0"+sec);
                             }
                         }
-
                     }
                 });
     }

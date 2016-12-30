@@ -1,6 +1,7 @@
 package com.example.administrator.myapplication.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DrawFilter;
@@ -17,16 +18,11 @@ import com.example.administrator.myapplication.R;
  * Created by my on 2016/12/1.
  */
 public class WaveView3 extends View {
-
     private Path mAbovePath,mBelowWavePath;
     private Paint mAboveWavePaint,mBelowWavePaint;
-
     private DrawFilter mDrawFilter;
-
     private float φ=0;
-
     private OnWaveAnimationListener mWaveAnimationListener;
-
     public WaveView3(Context context, AttributeSet attrs) {
         super(context, attrs);
         //初始化路径
@@ -43,24 +39,18 @@ public class WaveView3 extends View {
         mBelowWavePaint.setStyle(Paint.Style.FILL);
         mBelowWavePaint.setColor(getResources().getColor(R.color.white));
         mBelowWavePaint.setAlpha(80);
+
         //画布抗锯齿
         mDrawFilter = new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
     }
-
     @Override
     protected void onDraw(Canvas canvas) {
-
         canvas.setDrawFilter(mDrawFilter);
-
         mAbovePath.reset();
         mBelowWavePath.reset();
-
         φ-=0.1f;
-
         float y,y2;
-
         double ω = 2*Math.PI / getWidth();
-
         mAbovePath.moveTo(getLeft(), getBottom());
         mBelowWavePath.moveTo(getLeft(), getBottom());
         for (float x = 0; x <= getWidth(); x += 20) {
@@ -80,20 +70,14 @@ public class WaveView3 extends View {
         }
         mAbovePath.lineTo(getRight(),getBottom());
         mBelowWavePath.lineTo(getRight(), getBottom());
-
         canvas.drawPath(mAbovePath,mAboveWavePaint);
         canvas.drawPath(mBelowWavePath, mBelowWavePaint);
-
         postInvalidateDelayed(20);
-
     }
-
     public void setOnWaveAnimationListener(OnWaveAnimationListener l){
         this.mWaveAnimationListener = l;
     }
-
     public interface OnWaveAnimationListener{
         void OnWaveAnimation(float y);
     }
-
 }
