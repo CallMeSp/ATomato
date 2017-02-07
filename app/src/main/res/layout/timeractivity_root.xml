@@ -7,11 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="?attr/actionBarSize">
-    <com.example.administrator.myapplication.View.Countdown
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:id="@+id/countdown"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,5 +17,11 @@
         android:layout_gravity="center"
         android:id="@+id/time_text"
         android:text="00:00"/>
+
+    <com.sp.atomato.View.Countdown
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:id="@+id/countdown"/>
 </FrameLayout>
 </LinearLayout>

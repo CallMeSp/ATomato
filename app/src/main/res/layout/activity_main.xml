@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.myapplication.MainActivity"
+    tools:context=".MainActivity"
     android:fitsSystemWindows="true">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,6 +16,7 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             android:fitsSystemWindows="true"
+            android:layout_gravity="center_horizontal"
             app:contentScrim="@color/tomato">
             <include layout="@layout/activity_main_header"
                 android:id="@+id/test"/>
@@ -32,12 +33,15 @@
                     android:textSize="18sp"
                     android:textColor="@color/white"/>
             </android.support.v7.widget.Toolbar>
+
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-    <android.support.v7.widget.RecyclerView
+
+    <com.sp.atomato.View.SwipeRecycler.SwipeCardRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:id="@+id/news_recycle">
-    </android.support.v7.widget.RecyclerView>
+        android:id="@+id/joke_recycle">
+    </com.sp.atomato.View.SwipeRecycler.SwipeCardRecyclerView>
 </android.support.design.widget.CoordinatorLayout>
